@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{3acd10a3-2054-4b5c-a8c6-a85a3744b363}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)api\auth.createaccesstoken.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\auth.createapitoken.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\auth.disableaccess.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\auth.validatetoken.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\cameras.getcamera.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\cameras.getcameras.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\cluster.getcluster.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\cluster.getnodes.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\controller.notify.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\server.example.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\server.getconfig.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\server.getdrives.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\server.getlicense.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\server.getstats.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\server.getversion.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\streams.createstream.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\streams.ctrlstream.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\streams.deletestream.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\streams.getdvrranges.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\streams.getevents.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\streams.getplaybackurls.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\streams.getpreview.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\streams.getstream.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\streams.getstreams.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\streams.triggerevent.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\streams.updatestream.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\tools.calcbitrate.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)api\tools.calcparams.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)defines.php" />
+    <None Include="$(MSBuildThisFileDirectory)ms\config.overview.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)ms\config.server.tpl" />
+    <None Include="$(MSBuildThisFileDirectory)ms\config.streams.tpl" />
+  </ItemGroup>
+</Project>
