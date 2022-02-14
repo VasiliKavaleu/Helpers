@@ -5,6 +5,7 @@ from enum import Enum, auto
 from typing import Tuple, Any
 
 from openpyxl import Workbook
+# openpyxl==3.0.9
 
 OUTPUT_FILE_NAME = "export"
 
