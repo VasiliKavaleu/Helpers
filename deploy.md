@@ -20,6 +20,7 @@ Status service
 `systemctl status celery.service`
 
 List All Services 
+
 `service  --status-all`
 
 Path to **nginx** config
