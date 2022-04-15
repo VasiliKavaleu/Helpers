@@ -1,0 +1,11 @@
+
+Database migrations written in Go. Use as CLI or import as library.
+
+For CLI
+
+curl -s https://packagecloud.io/install/repositories/golang-migrate/migrate/script.deb.sh | sudo bash
+sudo apt-get update
+sudo apt-get install -y migrate
+
+Create two migrations (up/down)
+migrate create -ext sql -dir db/migration -seq init_schema
