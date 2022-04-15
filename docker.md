@@ -11,10 +11,16 @@
 ##### View container logs
 `docker logs <container_name_or_id>`
 
-####### Command example
+###### Command example
 
-`docker run --name project-db -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_USER=root -d postgres`
-`docker exec -it project-db psql -U root`
-`docker logs project-db`
+`docker run --name project-db -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_USER=root -d postgres` # create container
+
+`docker exec -it project-db psql -U root`  # enter to container
+
+`docker logs project-db` # view logs of container
+
+`docker exec -it project-db createdb --username=root --owner=root simple_bank` # execute command in container (create DB)
+
+`docker exec -it project-db psql -U root simple_bank`
 
   
