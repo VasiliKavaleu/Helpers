@@ -11,6 +11,26 @@
 ##### View container logs
 `docker logs <container_name_or_id>`
 
+##### Networks
+
+Networks - for communication between containers
+
+Create network
+
+`docker network create <network-name>`
+
+Connect to network
+
+`docker network connect <network-name> <container-name>`
+
+Inspect network
+
+`docker network inspect <network-name>`
+
+Inspect networks of container
+
+`docker container inspect <container-name>`
+
 ###### Command example
 
 `docker run --name project-db -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_USER=root -d postgres` # create container
