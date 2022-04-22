@@ -15,6 +15,9 @@ Start service
 
 `systemctl start celery.service`
 
+Restart service
+`systemctl restart celery.service`
+
 Status service
 
 `systemctl status celery.service`
