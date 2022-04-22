@@ -16,6 +16,7 @@ Start service
 `systemctl start celery.service`
 
 Restart service
+
 `systemctl restart celery.service`
 
 Status service
@@ -33,3 +34,14 @@ Path to **nginx** config
 Symbolic link
 
 `sudo ln -s /etc/nginx/sites-available/myproject /etc/nginx/sites-enabled`
+
+Run Celery 
+
+```
+# where collector.celery: collector - file with celery instance
+celery -A collector.celery worker --loglevel=info -f logs/celery.log
+```
+
+Run flower to monitoring Celery tasks
+
+`flower --broker=redis://redis:6379/0 --port=5555`
