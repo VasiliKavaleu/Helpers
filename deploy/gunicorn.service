@@ -1,0 +1,15 @@
+[Unit]
+Description=Name of Project
+After=network.target
+
+[Service]
+RestartSec=5
+WorkingDirectory=/path_to_workdir/where_manage_py_file
+ExecStart=/path_to/env/bin/gunicorn -b unix:/var/run/django_project.sock -w 4 --access-logfile /var/log/dj_project_access.log --error-logfile /var/log/dj_project_error.log PROJECT.wsgi:application
+Restart=always
+User=USER
+Group=USER
+
+
+[Install]
+WantedBy=multi-user.target

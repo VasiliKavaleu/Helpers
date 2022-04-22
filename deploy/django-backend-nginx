@@ -1,0 +1,43 @@
+upstream django {
+    server unix:/var/run/django.sock fail_timeout=0;
+}
+
+server {
+    charset utf-8;
+    client_max_body_size 128M;
+
+    listen 8001; ## listen for ipv4
+
+    server_name _;
+
+    location ^~ /static/ {
+        alias /path/to/project/static/;
+    }
+
+    location ^~ /media/ {
+        alias /path/to/project/media/;
+    }
+
+    location / {
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+        proxy_set_header Host $host:81;
+        add_header 'Access-Control-Expose-Headers' 'X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset' always;
+        add_header 'Access-Control-Allow-Origin' '*' always;
+        add_header 'Access-Control-Allow-Headers' 'Authorization,Accept,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,hl,X-Client' always;
+        add_header 'Access-Control-Allow-Methods' 'PUT, PATCH, GET, POST, DELETE, OPTIONS' always;
+
+        if ($request_method = OPTIONS ) {
+          add_header Content-Length 0;
+          add_header 'Access-Control-Allow-Origin' '*' always;
+          add_header 'Access-Control-Allow-Headers' 'Authorization,Accept,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,hl,X-Client' always;
+          add_header 'Access-Control-Expose-Headers' 'X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset' always;
+          add_header Content-Type text/plain;
+          add_header 'Access-Control-Allow-Methods' 'PUT, GET, PATCH, POST, DELETE, OPTIONS' always;
+          return 200;
+        }
+
+        proxy_pass http://django;
+    }
+
+}
