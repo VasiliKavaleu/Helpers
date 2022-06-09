@@ -101,3 +101,14 @@ Run flower to monitoring Celery tasks
 ```
 flower --broker=redis://redis:6379/0 --port=5555
 ```
+
+##### List ssh keys
+
+```
+ll ~/.ssh/id_*.pub
+```
+
+##### View ssh keys
+```
+cat ~/.ssh/id_rsa.pub
+```
