@@ -52,3 +52,13 @@ kubectl cluster-info
 ```
 kubectl get nodes
 ```
+
+Зайти в под
+```
+kubectl exec -ti $POD_NAME -- bash
+```
+
+Получить сервисы кластера
+```
+kubectl get services
+```
