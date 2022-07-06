@@ -23,3 +23,17 @@ spec:
         - containerPort: 27017  # port which container will listen
 
 # "---" = you can have multiple configurations within 1 file
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-service  # The same data.mongo-url from mongo-config
+spec:
+  selector:           # selector = select pods to forward the request to
+    app: mongo
+  ports:
+  - name: default
+    protocol: TCP
+    port: 27017            # Service Pods
+    targetPort: 27017    # containerPort of Deployment  =  Which Port to forward the request to the Pods?
