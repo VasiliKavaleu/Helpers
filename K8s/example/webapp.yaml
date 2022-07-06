@@ -1,0 +1,37 @@
+# Deployment & Service in 1 file, because they belong together
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  labels:
+    app: webapp
+spec:
+  replicas: 1        
+  selector:          
+      app: webapp   
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp          
+        image: nanajanashia/k8s-demo-app:v1.0
+        ports:
+        - containerPort: 3000
+
+# "---" = you can have multiple configurations within 1 file
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-service
+spec:
+  selector:
+    app: webapp
+  ports:
+  - name: default
+    protocol: TCP
+    port: 3000            
+    targetPort: 3000
