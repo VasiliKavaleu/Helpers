@@ -63,6 +63,16 @@ kubectl exec -ti $POD_NAME -- bash
 kubectl get services
 ```
 
+Просмотр список Подов в неймспейсе
+```
+kubectl get pods -n <name-of-namespace>
+```
+
+Просмотр описания Пода
+```
+kubectl describe pod <name-of-pod>
+```
+
 **Apply** manages applications through files defining K8s resources
 
 ```
@@ -72,10 +82,18 @@ kubectl apply -f <file-name.yaml>
 Listing different resouces with "get"
 
 ```
-kubectl get pod | configmap | secret | ...
+kubectl get pod | configmap | secret | deployments...
 ```
 
-View logs of container
+View logs of pod/container
 ```
 kubectl logs <podName>
+```
+
+Удалить Деплоймент можно двумя методами
+```
+kubectl delete -f deployment.yaml
+```
+```
+kubectl delete deployment -n <name-of-namespace> <pod-name>
 ```
