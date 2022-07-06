@@ -34,3 +34,10 @@ Attributes of "**spec**" are **specific** to the kind.
 3. status -> Automatically generated and added by K8s
 Where does K8s get this status data?
 Etcd holds the current status of any component K8s.
+
+Which IP address? To access via browser.
+**NodePort** Service is accessible on each Worker Node's IP address.
+INTERNAL-IP from:
+```
+kubectl get node -o wide
+```
