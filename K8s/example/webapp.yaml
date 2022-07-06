@@ -45,6 +45,7 @@ kind: Service
 metadata:
   name: webapp-service
 spec:
+  type: NodePort             # Default = ClusterIP
   selector:
     app: webapp
   ports:
@@ -52,3 +53,4 @@ spec:
     protocol: TCP
     port: 3000            
     targetPort: 3000
+    nodePort: 30100  # exposes the Service on each Node's IP at a statis port
