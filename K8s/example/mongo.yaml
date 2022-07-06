@@ -21,6 +21,19 @@ spec:
         image: mongo:5.0        # image
         ports:
         - containerPort: 27017  # port which container will listen
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret     # Get 'mongo-user' key info sensetive data fron Secret where metadata.name = 'mongo-secret'
+              key: mongo-user
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-password 
+
+        
 
 # "---" = you can have multiple configurations within 1 file
 
