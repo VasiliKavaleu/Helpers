@@ -58,7 +58,24 @@ kubectl get nodes
 kubectl exec -ti $POD_NAME -- bash
 ```
 
-Получить сервисы кластера
+Получить сервисы (services or svc) кластера
 ```
 kubectl get services
+```
+
+**Apply** manages applications through files defining K8s resources
+
+```
+kubectl apply -f <file-name.yaml>
+```
+
+Listing different resouces with "get"
+
+```
+kubectl get pod | configmap | secret | ...
+```
+
+View logs of container
+```
+kubectl logs <podName>
 ```
