@@ -1,0 +1,25 @@
+# Deployment & Service in 1 file, because they belong together
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-deployment
+  labels:
+    app: mongo
+spec:
+  replicas: 1        # replicas = how many Pods you want to create?
+  selector:          # which pods belongs to Deployment
+    matchLabels: 
+      app: mongo    # Match all Pods with label "app: mongo", 
+  # template - configuration of Pod, has own metadata and spec
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongodb           # container name
+        image: mongo:5.0        # image
+        ports:
+        - containerPort: 27017  # port which container will listen
+
+# "---" = you can have multiple configurations within 1 file
