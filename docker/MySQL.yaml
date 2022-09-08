@@ -11,6 +11,18 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     ports:
       - '3309:3306'
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: btk_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@1234.com
+      PGADMIN_DEFAULT_PASSWORD: 1234
+    depends_on:
+      - db
+    ports:
+      - "5055:80"
+    restart: unless-stopped
       
 # Or Execute in terminal
 # docker run -p 3309:3306 --name mysql-wifiportal -e MYSQL_ROOT_PASSWORD=root -d mysql:8
