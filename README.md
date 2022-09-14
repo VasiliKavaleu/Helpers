@@ -1,3 +1,3 @@
 # hELPERS
 
-### This repository provides useful tamplates in different area of development.
+### This repository provides useful templates in different area of development.
