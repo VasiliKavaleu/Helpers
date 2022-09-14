@@ -1,5 +1,8 @@
 ## Customize your terminal
 
+![example](https://github.com/VasiliKavaleu/Helpers/blob/main/customizations/terminal.png)
+
+
 Update the packages
 
 ```
