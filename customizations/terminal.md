@@ -50,6 +50,8 @@ POWERLEVEL9K_DISABLE_RPROMPT=true
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+
+POWERLEVEL9K_CONTEXT_TEMPLATE="%n"  # only name in template cli
 ```
 
 Change your Default Shell (for this command to be effective you need to restart your system)
