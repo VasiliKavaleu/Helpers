@@ -27,7 +27,7 @@ def tag(
 
   - кортежи как записи `tuple[str, float, str]`;
   - кортежи как записи с именованными полями;
-  ```python
+ ```python
 from typing import NamedTuple
 from geolib import geohash as gh # type: ignore
 
@@ -40,20 +40,30 @@ class Coordinate(NamedTuple):
 def geohash(lat_lon: Coordinate) -> str:
   return gh.encode(*lat_lon, PRECISION)
   ```
+ 
   - кортежи как неизменяемые последовательности `tuple[int, ...]`.
  
- 
+ Именованные кортежи — такие же кортежи, как и обычные tuple, но каждый элемент кортежа имеет имя, по которому мы можем к нему обращаться.
+ В Python есть именованные кортежи в составе пакета collections и в составе typing.
+ Для указания полям кортежа типы - из typing.
 
 ### list
 
 Обобщенная версия **list**. Полезна для аннотирования типов возвращаемых значений. Для аннотирования аргументов лучше использовать абстрактные типы коллекций, например **Sequence** или **Iterable**.
 
+В **Sequence** можно обращаться к элементам по индексу.
+**Iterable** подразумевает возможность итерироваться по контейнеру,
 
 ### dict
 
 В общем случае в аннотациях типов параметров лучше использовать **abc.Mapping** (подойдут под это dict, defaultdict, ChainMap) или **abc.MutableMapping**, а не **dict**(или typing.Dict в унаследованном коде).
 Тогда вызывающей стороне не нужно будет предоставлять объект, реализующий методы setdefault, pop и update, которые являются частью интерфейса MutableMapping, но не Mapping.
 
+Словарь с Literal ключами:
+
+`dict[Literal["longitude"] | Literal["latitude"], float]`
+
+`dict[Literal["longitude", "latitude"], float]`
 
 ### yield
 
@@ -171,3 +181,30 @@ Callable[[ParamType1, ParamType2], ReturnType]
 Этот специальный тип используется только для аннотирования типов возвращаемых значений функций, которые вообще не возвращают управления.
 Обычно они существуют, чтобы возбуждать исключение.
 
+### TypedDict
+
+```python
+from typing import TypedDict
+
+class Coordinates(TypedDict):
+  longitude: float
+  latitude: float
+  
+c = Coordinates(longitude=10, latitude=20)
+```
+
+
+# Enum
+
+```python
+from enum import Enum
+
+class WeatherType(Enum):
+  THUNDERSTORM = "Гроза"
+  DRIZZLE = "Изморось"
+  CLEAR = "Ясно"
+
+print(WeatherType.CLEAR)        # WeatherType.CLEAR
+print(WeatherType.CLEAR.value)  # Ясно
+print(WeatherType.CLEAR.name)   # CLEAR
+```
