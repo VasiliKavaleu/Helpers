@@ -8,7 +8,7 @@
 | defaultdict ||
 | deque | remove(), len(), .extend(), .append(), .extendleft(), .appendleft(), .pop(), .popleft(), .rotate() | Двухсторонняя очередь (потокобезопасна) |
 | namedtuple | . _fields, ._asdict(), ._replace() | |
-| OrderedDict | .move_to_end() |
+| OrderedDict | .move_to_end(), .popitem() |
 
 ### queue 
 Модуль queue предоставляет структуру данных c дисциплиной обслуживания FIFO (first in, first out — “первым пришел — первым ушел”), пригодную для многопоточного программирования. Ее можно использовать для безопасного обмена данными между потоками-производителями и потоками-потребителями. 
