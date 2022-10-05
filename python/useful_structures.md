@@ -5,10 +5,11 @@
 | --- | --- | --- |
 | ChainMap | .maps, .new_child() |
 | Counter | .elements(), .most_common ()|
-| defaultdict ||
+| defaultdict | d.default_factory, d.clear(), d.copy(), d.fromkeys(itm [initial]), d.get(k, [default]), d.items(), d.keys(), d.pop(k, [default]), d.popitem(), d.setdefault(k,[default]), d.update(m, [**kargs]), d.values()  |
 | deque | remove(), len(), .extend(), .append(), .extendleft(), .appendleft(), .pop(), .popleft(), .rotate() | Двухсторонняя очередь (потокобезопасна) |
 | namedtuple | . _fields, ._asdict(), ._replace() | |
-| OrderedDict | .move_to_end(), .popitem() |
+| OrderedDict | .move_to_end(), .popitem() | |
+| dict | d.clear(), d.copy(), d.fromkeys(itm [initial]), d.get(k, [default]), d.items(), d.keys(), d.pop(k, [default]), d.popitem(), d.setdefault(k,[default]), d.update(m, [**kargs]), d.values() | |
 
 ### queue 
 Модуль queue предоставляет структуру данных c дисциплиной обслуживания FIFO (first in, first out — “первым пришел — первым ушел”), пригодную для многопоточного программирования. Ее можно использовать для безопасного обмена данными между потоками-производителями и потоками-потребителями. 
