@@ -9,6 +9,11 @@ docker pull <image>:<tag>
 docker run --name <container_name> -e <environment_variable> -p <host_ports:container_ports> -d <image>:<tag>
 ```
 
+##### Send a lignal to container
+```
+docker kill -s SIGHUP <container_id>
+```
+
 ##### Run command in container
 ```
 docker exec -it <container_name_or_id> <command>[args]
