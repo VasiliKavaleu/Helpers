@@ -38,7 +38,7 @@ func main() {
 
 func makeBatchApiCalls(ctx context.Context, c Client, log *logrus.Logger, requests []Request) {
 	wg := sync.WaitGroup{}
-  rateLimiter := NewRateLimiter(1000)
+        rateLimiter := NewRateLimiter(1000)
 	for _, r := range requests {
 		r := r
 		wg.Add(1)
