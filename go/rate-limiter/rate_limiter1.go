@@ -44,7 +44,7 @@ func makeBatchApiCalls(ctx context.Context, c Client, log *logrus.Logger, reques
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
-      rateLimiter.allow()
+      rateLimiter.allow()  // блокируется пока не сработает Тикер
 			err := c.SendRequest(ctx, r)
 			if err != nil {
 				log.WithError(err).Error("send request")
